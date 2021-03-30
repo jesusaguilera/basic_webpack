@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("conosle.log(\"Hola Mundo\");\n\n\n//# sourceURL=webpack://webpack_practice/./src/index.js?");
+eval("var arr = [1, 2, 3];\n\nvar codeESNext = function codeESNext() {\n  var _console;\n\n  return (_console = console).log.apply(_console, arr);\n};\n\nconosle.log(\"Hola Mundo\");\n\n//# sourceURL=webpack://webpack_practice/./src/index.js?");
 
 /***/ })
 
