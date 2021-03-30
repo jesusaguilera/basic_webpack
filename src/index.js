@@ -1,5 +1,7 @@
+import "./assets/scss/styles.scss";
+
 const arr = [1, 2, 3];
 const codeESNext = () => console.log(...arr);
-conosle.log("Hola Mundo");
+console.log("Hola Mundo");
 
 codeESNext();

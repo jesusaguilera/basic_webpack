@@ -1,5 +1,5 @@
 {
-  "name": "webpack_practice",
+  "name": "basic_webpack",
   "version": "1.0.0",
   "description": "Webpack practice",
   "main": "src/index.js",
@@ -7,7 +7,8 @@
     "dev-foo": "webpack --mode development --entry ./foo/src/index.js --output-path ./foo/dist",
     "dev": "webpack --mode development",
     "build-foo": "webpack --mode production --entry ./foo/src/index.js --output-path ./foo/dist",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "start": "webpack serve --mode development --open"
   },
   "keywords": [
     "webpack"
@@ -18,7 +19,16 @@
     "@babel/core": "^7.13.14",
     "@babel/preset-env": "^7.13.12",
     "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.0",
+    "file-loader": "^6.2.0",
+    "html-loader": "^2.1.2",
+    "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.4.0",
+    "node-sass": "^5.0.0",
+    "sass": "^1.32.8",
+    "sass-loader": "^11.0.1",
     "webpack": "^5.28.0",
-    "webpack-cli": "^4.6.0"
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
   }
 }
