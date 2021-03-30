@@ -36,11 +36,13 @@ module.exports = {
       },
       // IMAGES
       {
-        test: /\.(png|jpe?g|gif)$/i,
-        loader: "file-loader",
-        options: {
-          outputPath: "images",
-        },
+        test: /\.(png|jpe?g|gif|svg|webp)$/i,
+        use: {
+          loader: "file-loader",
+          options: {
+            outputPath: "/images",
+          },
+        }
       },
     ],
   },
