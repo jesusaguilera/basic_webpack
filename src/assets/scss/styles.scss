@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "g-regular";
+  src: url("../fonts/g_regular.ttf") format("truetype");
+}
+
 body {
-  background-color: pink;
+  background-color: green;
+  font-family: "g-regular";
 }
