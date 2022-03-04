@@ -1,6 +1,12 @@
+const path = require('path')
+
+// Plugins
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+
+// Rules
+const rulesAll = require('./webpack_config/rules/')
 
 module.exports = {
   entry: {
@@ -9,85 +15,10 @@ module.exports = {
     ts: "./src/index_ts.js"
   },
   output: {
-    filename: "main_[name].[chunkhash].js"
+    filename: "main_[name].[chunkhash].js",
+    path: path.resolve(__dirname, 'build')
   },
-  module: {
-    rules: [
-      // ES6
-      {
-        test: /\.jsx?$/i,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
-      },
-      // Html
-      {
-        test: /\.html$/i,
-        use: [
-          {
-            loader: "html-loader",
-            options: {
-              minimize: true,
-            },
-          },
-        ],
-      },
-      // CSS
-      {
-        test: /\.css/i,
-        // use: [MiniCSSExtractPlugin.loader, "css-loader"],
-        use: [
-          {
-            loader: MiniCSSExtractPlugin.loader,
-            options: {
-              publicPath: "./",
-            },
-          },
-          "css-loader",
-        ],
-      },
-      // SASS
-      {
-        test: /\.scss/i,
-        use: [
-          {
-            loader: MiniCSSExtractPlugin.loader,
-            options: {
-              publicPath: "./",
-            },
-          },
-          "css-loader",
-          "sass-loader",
-        ],
-      },
-      // IMAGES
-      {
-        test: /\.(png|jpe?g|gif|svg|webp)$/i,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              outputPath: "./images",
-            },
-          },
-          "image-webpack-loader",
-        ],
-      },
-      // FONT
-      {
-        test: /\.(ttf|otf|woff)$/i,
-        use: {
-          loader: "file-loader",
-          options: {
-            // publicPath relative to scss
-            publicPath: "../fonts",
-            outputPath: "./fonts",
-          },
-        },
-      },
-    ],
-  },
+  module: { rules: rulesAll },
   optimization: {
     minimize: true,
     minimizer: [new CssMinimizerPlugin()],
