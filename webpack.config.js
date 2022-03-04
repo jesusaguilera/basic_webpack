@@ -1,9 +1,8 @@
 const path = require('path')
 
 // Plugins
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const pluginsAll = require('./webpack_config/plugins')
 
 // Rules
 const rulesAll = require('./webpack_config/rules/')
@@ -23,27 +22,5 @@ module.exports = {
     minimize: true,
     minimizer: [new CssMinimizerPlugin()],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      filename: "./index.html",
-      chunks: ["js"],
-      hash: true
-    }),
-    new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      filename: "./index_react.html",
-      chunks: ["react"],
-      hash: true
-    }),
-    new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      filename: "./index_ts.html",
-      chunks: ["ts"],
-      hash: true
-    }),
-    new MiniCSSExtractPlugin({
-      filename: "./css/main.css",
-    }),
-  ],
+  plugins: pluginsAll,
 };
