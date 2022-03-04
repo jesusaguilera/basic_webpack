@@ -1,11 +1,13 @@
 const path = require('path')
 
 // Plugins
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const pluginsAll = require('./webpack_config/plugins')
 
 // Rules
 const rulesAll = require('./webpack_config/rules/')
+
+// Optimization
+const optimizationAll = require('./webpack_config/optimization')
 
 module.exports = {
   entry: {
@@ -18,9 +20,6 @@ module.exports = {
     path: path.resolve(__dirname, 'build')
   },
   module: { rules: rulesAll },
-  optimization: {
-    minimize: true,
-    minimizer: [new CssMinimizerPlugin()],
-  },
+  optimization: optimizationAll,
   plugins: pluginsAll,
 };
