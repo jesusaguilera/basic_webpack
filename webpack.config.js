@@ -6,18 +6,26 @@ const pluginsAll = require('./webpack_config/plugins')
 // Rules
 const rulesAll = require('./webpack_config/rules/')
 
-module.exports = () => {
+module.exports = (env, argv) => {
+
+  const {mode} = argv
+
+  const isProduction  = mode === 'production'
+
   return {
     entry: {
-      js: "./src/index.js",
-      react: "./src/index_react.js",
-      ts: "./src/index_ts.js"
+      main_js: "./src/index.js",
+      main_react: "./src/index_react.js",
+      main_ts: "./src/index_ts.js"
     },
     output: {
-      filename: "main_[name].[chunkhash].js",
+      filename: isProduction
+        ? "[name].[contenthash].js"  // (cacheado) cambia el nombre del archivo si cambia contenido
+        : "[name].js",
       path: path.resolve(__dirname, 'build')
     },
-    module: { rules: rulesAll },
     plugins: pluginsAll,
+    module: { rules: rulesAll },
   }
+
 };

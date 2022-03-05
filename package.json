@@ -5,8 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "dev-foo": "webpack --mode development --entry ./foo/src/index.js --output-path ./foo/dist",
-    "dev": "webpack --mode development",
     "build-foo": "webpack --mode production --entry ./foo/src/index.js --output-path ./foo/dist",
+    "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "start": "webpack serve --mode development --open --port 3000"
   },
