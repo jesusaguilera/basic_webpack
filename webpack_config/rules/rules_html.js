@@ -3,9 +3,10 @@ const rulesHtml = {
   use: [
     {
       loader: "html-loader",
-      options: {
-        minimize: true,
-      },
+      // IT'S MINIMIZED IN PRODUCTION MODE BY DEFAULT
+      // options: {
+      //   minimize: true,
+      // },
     },
   ],
 }
